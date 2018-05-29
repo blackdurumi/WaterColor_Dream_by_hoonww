@@ -11,9 +11,12 @@ public class BuildTile : MonoBehaviour {
 
             //1. instantiate existing gameobject
         GameObject obj = GameObject.Find("tile");
-        for(int i=0; i<6; i++)
-            Instantiate(obj, new Vector3(obj.transform.position.x+xx[i], obj.transform.position.y, obj.transform.position.z+zz[i]), Quaternion.identity);
+		for (int i = 0; i < 6; i++) {
+			GameObject tile = Instantiate(obj, new Vector3(obj.transform.position.x + xx[i], obj.transform.position.y, obj.transform.position.z + zz[i]), Quaternion.identity);
 
+			
+			tile.GetComponentInChildren<Renderer>().materials[0].SetColor("_Color", new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)));
+		}
         // 2. instantiate from resources/prefab
         //Instantiate(Resources.Load("Prefabs/Tile_prefab"), Vector3.up * 5, Quaternion.identity);
     }
