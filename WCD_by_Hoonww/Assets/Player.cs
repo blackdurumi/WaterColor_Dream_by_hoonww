@@ -14,7 +14,8 @@ public class Player : MonoBehaviour {
             Rigidbody rb = GetComponent<Rigidbody>();
             GameObject camera = GameObject.Find("Main Camera");
             Rigidbody cmrb = camera.GetComponent<Rigidbody>();
-            rb.AddForce(new Vector3(0, 450, 0));
+			rb.velocity = new Vector3(0,0,0);
+            rb.AddForce(new Vector3(0, 450, 100));
             //cmrb.AddForce(new Vector3(0, 450, 0));
 
             Debug.Log("player color : " + GetComponent<MeshRenderer>().materials[0].color);
@@ -33,8 +34,8 @@ public class Player : MonoBehaviour {
         Rigidbody cmrb = camera.GetComponent<Rigidbody>();
         GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new UnityEngine.Color(1.0f, 1.0f, 1.0f));
 
-        rb.AddForce(new Vector3(0, 0, 100));
-        cmrb.AddForce(new Vector3(0, 0, 100));
+        //rb.AddForce(new Vector3(0, 0, 100));
+        //cmrb.AddForce(new Vector3(0, 0, 100));
     }
 
     void Update()

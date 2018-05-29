@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     {
         switch (state)
         {
-            case 1: 
+            case 1 : break;
         }
     }
 }
