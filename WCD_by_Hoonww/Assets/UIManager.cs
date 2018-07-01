@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour {
 
     public void UpdateExpectedColorImage(UnityEngine.Color Color)
     {
-        Image ExpColor = GameObject.Find("Image").GetComponent<Image>();
+        Image ExpColor = GameObject.Find("Image (1)").GetComponent<Image>();
 
         ExpColor.color = Color;
     }
@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour {
     // 버튼들 목록
     public void GameStartButton()
     {
+        Image MissionColor = GameObject.Find("Image").GetComponent<Image>();
+
+        MissionColor.color = new Color(0.0f, 0.0f, 0.0f); // Mission Color 가져오기 필요
     }
 
     public void RestartButton()
