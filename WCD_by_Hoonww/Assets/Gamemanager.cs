@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour{
 
     [SerializeField]
     private bool GSButtonPressed = false;
@@ -14,6 +14,15 @@ public class GameManager : MonoBehaviour {
     private bool ContinuePressed = false;
 
     public int state = 1;
+
+    public void changeState(string name)
+    {
+        switch (name)
+        {
+            case "GameOver": GameOver = true; break;
+            //case "StageClear": 
+        }
+    }
 
     private void Update()
     {

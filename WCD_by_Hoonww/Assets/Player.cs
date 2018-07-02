@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
     bool isColliding;
 	const int side = 6;
     UnityEngine.Color MissionColor;
+    GameManager gm;
     private void OnCollisionEnter(Collision collision)
     {
         if (isColliding) return;
@@ -22,14 +23,14 @@ public class Player : MonoBehaviour {
             //Debug.Log("tile color : " + collision.collider.GetComponent<MeshRenderer>().materials[0].color);
 
             UnityEngine.UI.Text a = GameObject.Find("GameObject").GetComponent<BounceText>().text;
-            /*
+
             //스테이지 클리어 여부 판별
             if (collision.collider.GetComponent<MeshRenderer>().materials[0].color == MissionColor)
+                gm.changeState("StageClear");
 
             //게임오버 여부 판별
             if (System.Convert.ToInt32(a.text) == 0)
-                GameManager.GameOver = true;
-                */
+                gm.changeState("GameOver");
 
             // 플레이어 색깔 갱신
             UnityEngine.Color ChangedColor;

@@ -17,7 +17,7 @@ public class BuildTile : MonoBehaviour {
 			GameObject tile = Instantiate(obj, new Vector3(obj.transform.position.x + xx[i], obj.transform.position.y, obj.transform.position.z + zz[i]), Quaternion.identity);
             
             //tile.GetComponentInChildren<Renderer>().materials[0].SetColor("_Color", new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)));
-            tile.GetComponentInChildren<MeshRenderer>().materials[0] = (UnityEngine.Material)Resources.Load("Resources/Tile Material "+val[i].ToString());
+            tile.GetComponentInChildren<MeshRenderer>().material = (UnityEngine.Material)Resources.Load("Tile Material "+val[i].ToString());
 		}
         // 2. instantiate from resources/prefab
         //Instantiate(Resources.Load("Prefabs/Tile_prefab"), Vector3.up * 5, Quaternion.identity);
