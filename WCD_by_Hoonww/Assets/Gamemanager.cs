@@ -15,18 +15,19 @@ public class GameManager : MonoBehaviour{
 
     public int state = 1;
 
-    public void changeState(string name)
+    public void ChangeState(string name)
     {
         switch (name)
         {
-            case "GameOver": GameOver = true; break;
-            //case "StageClear": 
+            case "GameOver": state=6; break;
+            case "StageClear": state=11; break;
+            case "Result": state = 12; break;
         }
     }
 
     private void Update()
     {
-        switch (state)
+       /* switch (state)
         {
             case 1: //게임 초기화
                 state = 2;
@@ -80,6 +81,6 @@ public class GameManager : MonoBehaviour{
             case 12: //결과 화면
                 state = 3;
                 break;
-        }
+        }*/
     }
 }

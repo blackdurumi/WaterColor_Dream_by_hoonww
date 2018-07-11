@@ -22,7 +22,7 @@ public class MapParser : MonoBehaviour {
 
     public void Parse()
     {
-        TextAsset dt = Resources.Load("Data.txt", typeof(TextAsset)) as TextAsset;
+        TextAsset dt = Resources.Load("GameData\\Map.txt", typeof(TextAsset)) as TextAsset;
         StringReader sr = new StringReader(dt.text);
 
         string sources = sr.ReadLine();
@@ -42,7 +42,7 @@ public class MapParser : MonoBehaviour {
             if (values.Length == 1 && data.Areas == 0)
                 data.Areas = Convert.ToInt32(values[0]);
             else if (values.Length == 1)
-                data.map[n].nextArea = Convert.ToInt32(values[0]);
+                data.map[n++].nextArea = Convert.ToInt32(values[0]);
             else
             {
                 if (c == 0)
@@ -57,7 +57,6 @@ public class MapParser : MonoBehaviour {
                 {
                     for (int i = 0; i < 7; i++)
                         data.map[n].tile[i].material_num = values[i];
-                    n++;
                 }
 
                 c = 1 - c;

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     bool isColliding;
 	const int side = 6;
     UnityEngine.Color MissionColor;
-    GameManager gm;
+    GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     private void OnCollisionEnter(Collision collision)
     {
         if (isColliding) return;
@@ -19,25 +19,20 @@ public class Player : MonoBehaviour {
 			rb.velocity = new Vector3(0,0,0);
             rb.AddForce(new Vector3(0, 9.836f, 5.679f)*50);
 
-            //Debug.Log("player color : " + GetComponent<MeshRenderer>().materials[0].color);
-            //Debug.Log("tile color : " + collision.collider.GetComponent<MeshRenderer>().materials[0].color);
-
             UnityEngine.UI.Text a = GameObject.Find("GameObject").GetComponent<BounceText>().text;
 
             //스테이지 클리어 여부 판별
             if (collision.collider.GetComponent<MeshRenderer>().materials[0].color == MissionColor)
-                gm.changeState("StageClear");
+                gm.ChangeState("StageClear");
 
             //게임오버 여부 판별
             if (System.Convert.ToInt32(a.text) == 0)
-                gm.changeState("GameOver");
+                gm.ChangeState("GameOver");
 
             // 플레이어 색깔 갱신
             UnityEngine.Color ChangedColor;
             ChangedColor = (GetComponent<MeshRenderer>().materials[0].color + collision.collider.GetComponent<MeshRenderer>().materials[0].color) / 2.0f;
             GetComponent<MeshRenderer>().materials[0].SetColor("_Color", ChangedColor);
-
-            //Debug.Log("Changed color : " + ChangedColor);
 
             // 스코프 위치 이동
 			GameObject scope = GameObject.Find("Scope");
