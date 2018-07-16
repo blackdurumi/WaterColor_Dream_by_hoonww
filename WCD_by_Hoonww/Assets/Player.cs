@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     bool isColliding;
 	const int side = 6;
     UnityEngine.Color MissionColor;
-    GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    GameManager gm;
     private void OnCollisionEnter(Collision collision)
     {
         if (isColliding) return;
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour {
     void Start()
     {
         GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new UnityEngine.Color(1.0f, 1.0f, 1.0f));
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()

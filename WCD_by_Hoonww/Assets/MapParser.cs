@@ -6,7 +6,7 @@ using System;
 
 public class MapParser : MonoBehaviour {
 
-    public DS data;
+    public DS data=null;
 
     string m_strPath = "Assets/Resources/";
 
@@ -15,15 +15,16 @@ public class MapParser : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
+	// Update is called once per frame 
 	void Update () {
 		
 	}
 
     public void Parse()
     {
-        TextAsset dt = Resources.Load("GameData\\Map.txt", typeof(TextAsset)) as TextAsset;
-        StringReader sr = new StringReader(dt.text);
+        /*TextAsset dt = Resources.Load("GameData/Map1", typeof(TextAsset)) as TextAsset;
+        StringReader sr = new StringReader(dt.text);*/
+        StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/Map1.txt");
 
         string sources = sr.ReadLine();
         string[] values;
@@ -38,8 +39,8 @@ public class MapParser : MonoBehaviour {
                 sr.Close();
                 return;
             }
-
-            if (values.Length == 1 && data.Areas == 0)
+            
+            if (values.Length == 1 && data==null)
                 data.Areas = Convert.ToInt32(values[0]);
             else if (values.Length == 1)
                 data.map[n++].nextArea = Convert.ToInt32(values[0]);
@@ -56,7 +57,7 @@ public class MapParser : MonoBehaviour {
                 else
                 {
                     for (int i = 0; i < 7; i++)
-                        data.map[n].tile[i].material_num = values[i];
+                        data.map[n].tile[i].material_num = Convert.ToInt32(values[i]);
                 }
 
                 c = 1 - c;
@@ -72,14 +73,14 @@ public class DS{
     public Area[] map;
 }
 
+public class Tile
+{
+    public bool enable;
+    public int material_num;
+}
+
 public class Area
 {
     public Tile[] tile = new Tile[7];
     public int nextArea;
-}
-
-public class Tile
-{
-    public bool enable;
-    public string material_num;
 }
