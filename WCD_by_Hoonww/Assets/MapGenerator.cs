@@ -17,6 +17,8 @@ public class MapGenerator : MonoBehaviour {
 
         parser.Parse();
 
+        Debug.Log(MapData);
+        Debug.Log(MapData.Areas);
         GameObject obj = GameObject.Find("tile");
         for (int area=0; area<MapData.Areas; area++)
         {

@@ -6,13 +6,13 @@ using System;
 
 public class MapParser : MonoBehaviour {
 
-    public DS data=null;
+    public DS data;
 
     string m_strPath = "Assets/Resources/";
 
 	// Use this for initialization
 	void Start () {
-		
+        data = new DS();
 	}
 	
 	// Update is called once per frame 
@@ -40,7 +40,7 @@ public class MapParser : MonoBehaviour {
                 return;
             }
             
-            if (values.Length == 1 && data==null)
+            if (values.Length == 1 && data.Areas==0)
                 data.Areas = Convert.ToInt32(values[0]);
             else if (values.Length == 1)
                 data.map[n++].nextArea = Convert.ToInt32(values[0]);
@@ -62,6 +62,13 @@ public class MapParser : MonoBehaviour {
 
                 c = 1 - c;
             }
+            Debug.Log(data.Areas);
+            if (data.map[0] != null)
+            {
+                Debug.Log(data.map[0].nextArea);
+                Debug.Log(data.map[0].tile[0].enable);
+                Debug.Log(data.map[0].tile[0].material_num);
+            }
 
             sources = sr.ReadLine();
         }
@@ -70,7 +77,7 @@ public class MapParser : MonoBehaviour {
 
 public class DS{
     public int Areas;
-    public Area[] map;
+    public Area[] map= new Area[100];
 }
 
 public class Tile
