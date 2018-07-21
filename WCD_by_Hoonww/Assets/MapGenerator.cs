@@ -16,29 +16,28 @@ public class MapGenerator : MonoBehaviour {
         DS MapData = parser.data;
 
         parser.Parse();
-
-        Debug.Log(MapData);
-        Debug.Log(MapData.Areas);
+        
         GameObject obj = GameObject.Find("tile");
+        GameObject tile;
         for (int area=0; area<MapData.Areas; area++)
         {
             if (area != 0)
             {
-                GameObject tile = Instantiate(obj, new Vector3(obj.transform.position.x + x, obj.transform.position.y, obj.transform.position.z + z), Quaternion.identity);
+                tile = Instantiate(obj, new Vector3(obj.transform.position.x + x, obj.transform.position.y, obj.transform.position.z + z), Quaternion.identity);
 
                 tile.GetComponentInChildren<MeshRenderer>().material = (UnityEngine.Material)Resources.Load("Tile Material " + MapData.map[area].tile[0].material_num.ToString());
             }
-            for (int i = 1; i <= 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 if (MapData.map[area].tile[i].enable)
                 {
-                    GameObject tile = Instantiate(obj, new Vector3(obj.transform.position.x + x + xx[i], obj.transform.position.y, obj.transform.position.z + z + zz[i]), Quaternion.identity);
+                    tile = Instantiate(obj, new Vector3(obj.transform.position.x + x + xx[i], obj.transform.position.y, obj.transform.position.z + z + zz[i]), Quaternion.identity);
 
                     tile.GetComponentInChildren<MeshRenderer>().material = (UnityEngine.Material)Resources.Load("Tile Material " + MapData.map[area].tile[i].material_num.ToString());
                 }
             }
-            x += xx[MapData.map[area].nextArea];
-            z += zz[MapData.map[area].nextArea];
+            x += xx[MapData.map[area].nextArea]*3;
+            z += zz[MapData.map[area].nextArea]*3;
         }
 	}
 	

@@ -62,13 +62,6 @@ public class MapParser : MonoBehaviour {
 
                 c = 1 - c;
             }
-            Debug.Log(data.Areas);
-            if (data.map[0] != null)
-            {
-                Debug.Log(data.map[0].nextArea);
-                Debug.Log(data.map[0].tile[0].enable);
-                Debug.Log(data.map[0].tile[0].material_num);
-            }
 
             sources = sr.ReadLine();
         }
@@ -78,16 +71,36 @@ public class MapParser : MonoBehaviour {
 public class DS{
     public int Areas;
     public Area[] map= new Area[100];
+
+    public DS()
+    {
+        Areas = 0;
+        for (int i = 0; i < 100; i++)
+            map[i] = new Area();
+    }
 }
 
 public class Tile
 {
     public bool enable;
     public int material_num;
+
+    public Tile()
+    {
+        enable = false;
+        material_num = 0;
+    }
 }
 
 public class Area
 {
     public Tile[] tile = new Tile[7];
-    public int nextArea;
+    public int nextArea=0;
+    
+    public Area()
+    {
+        nextArea = 0;
+        for (int i = 0; i < 7; i++)
+            tile[i] = new Tile();
+    }
 }
