@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour{
         }
     }
 
+    public void SceneSwitch()
+    {
+        GameObject.Find("SceneSwitcher").GetComponent<SceneSwitcher>().Switcher(state);
+    }
+
     private void Update()
     {
     }

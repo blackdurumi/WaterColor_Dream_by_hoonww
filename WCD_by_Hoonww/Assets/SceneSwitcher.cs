@@ -5,21 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour {
 
-    GameManager gm;
-	// Use this for initialization
-	void Start ()
+    public void Switcher(int x)
     {
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-
-    }
-
-    public void Switcher()
-    {
-        switch (gm.state)
+        switch (x)
         {
             case 3: SceneManager.LoadScene("InGame"); break;
             case 6: SceneManager.LoadScene("Result"); break;
