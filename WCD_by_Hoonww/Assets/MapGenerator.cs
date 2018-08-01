@@ -36,10 +36,22 @@ public class MapGenerator : MonoBehaviour {
                     tile.GetComponentInChildren<MeshRenderer>().material = (UnityEngine.Material)Resources.Load("Tile Material " + MapData.map[area].tile[i].material_num.ToString());
                 }
             }
-            x += xx[MapData.map[area].nextArea]*3;
-            z += zz[MapData.map[area].nextArea]*3;
+
+            if (area < MapData.Areas - 1)
+            {
+                x += xx[MapData.map[area].nextArea] * 3;
+                z += zz[MapData.map[area].nextArea] * 3;
+            }
         }
-	}
+        
+        for (int i = 0; i < 6; i++)
+        {
+            GameObject curwall = GameObject.Find("FW" + i);
+            curwall.transform.position = new Vector3(0.0f + x + xx[i] / 2, 4.0f, 0.0f + z + zz[i] / 2);
+            if (i % 3 == 1) curwall.transform.RotateAround(curwall.transform.position, Vector3.up, 60.0f);
+            else if (i % 3 == 2) curwall.transform.RotateAround(curwall.transform.position, Vector3.up, -60.0f);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

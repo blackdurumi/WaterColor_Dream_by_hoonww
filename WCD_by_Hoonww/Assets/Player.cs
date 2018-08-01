@@ -44,7 +44,6 @@ public class Player : MonoBehaviour {
             // (남은 충돌 횟수 0일시) 결과화면으로
             if (a.text == "0") {
                 gm.ChangeState("GameOver");
-                gm.SceneSwitch();
             }
         }
     }
