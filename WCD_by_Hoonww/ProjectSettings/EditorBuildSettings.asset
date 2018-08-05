@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Result.unity
     guid: 8b99054af53fe5240a6ea89ca3fa5ac6
+  - enabled: 1
+    path: Assets/StageSelect.unity
+    guid: 3b48cd713dd32d34cb6d61fc5349bcab
   m_configObjects: {}

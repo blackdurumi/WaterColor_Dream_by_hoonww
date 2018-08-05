@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour{
             case "FinishDataSaved": state = 12; break;
             case "ResultToSS": state = 3; break;
         }
+        if (state == 4)
+        {
+            //초기화 작업
+            state = 3;
+        }
         GameObject.Find("SceneSwitcher").GetComponent<SceneSwitcher>().Switcher(state);
     }
 
