@@ -63,7 +63,17 @@ public class Player : MonoBehaviour {
 
     void SaveClear(int stage)
     {
-        /*StreamWriter sw = new StreamWriter("Assets/Resources/GameData/StageResult.txt", false);
-        for(int i=)*/
+        StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/StageResult.txt",false);
+        string[] values = new string[6];
+        for(int i=1; i<=5; i++)
+            values[i] = sr.ReadLine();
+
+        values[stage] = "1";
+        sr.Close();
+
+        StreamWriter sw = new StreamWriter(Application.dataPath + "/Resources/GameData/StageResult.txt", false);
+        for (int i = 1; i <= 5; i++)
+            sw.WriteLine(values[i]);
+        sw.Close();
     }
 }

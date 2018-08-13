@@ -16,7 +16,9 @@ public class IsCleared : MonoBehaviour {
         {
             string sources = sr.ReadLine();
             if (sources == "1") GameObject.Find("Button " + i.ToString()).GetComponent<Image>().color = new Color(255.0f, 0.0f, 0.0f);
+            Debug.Log(sources);
         }
+        sr.Close();
 	}
 	
 	// Update is called once per frame
