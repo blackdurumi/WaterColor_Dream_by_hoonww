@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
             // (남은 충돌 횟수 0일시) 결과화면으로
             if (a.text == "0") {
                 SaveClear(1);
-                gm.ChangeState("GameOver");
+                gm.ChangeState("Result");
             }
         }
     }
@@ -59,6 +59,9 @@ public class Player : MonoBehaviour {
     void Update()
     {
         isColliding = false;
+
+        if (transform.position.y < -10)
+            gm.ChangeState("GameOver");
     }
 
     void SaveClear(int stage)

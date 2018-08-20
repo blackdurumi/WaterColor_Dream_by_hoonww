@@ -9,9 +9,9 @@ public class SceneSwitcher : MonoBehaviour {
     {
         switch (x)
         {
-            case 3: SceneManager.LoadScene("StageSelect"); break;
-            case 5: SceneManager.LoadScene("InGame"); break;
-            case 6: SceneManager.LoadScene("Result"); break;
+            case 2: SceneManager.LoadScene("StageSelect"); break;
+            case 4: SceneManager.LoadScene("InGame"); break;
+            case 7: SceneManager.LoadScene("Result"); break;
         }
     }
 }
