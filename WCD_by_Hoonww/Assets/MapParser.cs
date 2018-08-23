@@ -24,8 +24,7 @@ public class MapParser : MonoBehaviour {
     {
         /*TextAsset dt = Resources.Load("GameData/Map1", typeof(TextAsset)) as TextAsset;
         StringReader sr = new StringReader(dt.text);*/
-        GameObject gm = GameObject.Find("GameManager");
-        //StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/Map"+gm.GetComponent<GameManager>().stage.ToString()+".txt");
+        //StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/Map"+GameManager.I.GetComponent<GameManager>().stage.ToString()+".txt");
         StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/Map1.txt");
 
         string sources = sr.ReadLine();

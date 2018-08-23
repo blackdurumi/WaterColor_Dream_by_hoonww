@@ -8,7 +8,6 @@ public class Player : MonoBehaviour {
     bool isColliding;
 	const int side = 6;
     UnityEngine.Color MissionColor;
-    GameManager gm;
     private void OnCollisionEnter(Collision collision)
     {
         if (isColliding) return;
@@ -24,11 +23,11 @@ public class Player : MonoBehaviour {
 
             //스테이지 클리어 여부 판별
             if (collision.collider.GetComponent<MeshRenderer>().materials[0].color == MissionColor)
-                gm.ChangeState("StageClear");
+                GameManager.I.ChangeState("StageClear");
 
             //게임오버 여부 판별
             if (System.Convert.ToInt32(a.text) == 0)
-                gm.ChangeState("GameOver");
+                GameManager.I.ChangeState("GameOver");
 
             // 플레이어 색깔 갱신
             UnityEngine.Color ChangedColor;
@@ -45,7 +44,7 @@ public class Player : MonoBehaviour {
             // (남은 충돌 횟수 0일시) 결과화면으로
             if (a.text == "0") {
                 SaveClear(1);
-                gm.ChangeState("Result");
+                GameManager.I.ChangeState("Result");
             }
         }
     }
@@ -53,7 +52,6 @@ public class Player : MonoBehaviour {
     void Start()
     {
         GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new UnityEngine.Color(1.0f, 1.0f, 1.0f));
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -61,7 +59,7 @@ public class Player : MonoBehaviour {
         isColliding = false;
 
         if (transform.position.y < -10)
-            gm.ChangeState("GameOver");
+            GameManager.I.ChangeState("GameOver");
     }
 
     void SaveClear(int stage)
