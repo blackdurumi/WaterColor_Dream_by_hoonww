@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeOut : MonoBehaviour {
+public class FadeAnim : MonoBehaviour {
 
     public float animTime = 2f;
 
@@ -15,22 +15,24 @@ public class FadeOut : MonoBehaviour {
 
     private bool isPlaying = false;
 
-	// Use this for initialization
-	void Start () {
-        fadeImage = GetComponent<Image>();
-	}
-
-    public void StartFadeAnim()
+    // Use this for initialization
+    void Start()
     {
-        if (isPlaying == true) return;
+        fadeImage = GetComponent<Image>();
+    }
 
-        StartCoroutine("PlayFadeOut");
+    public void StartFadeOutAnim()
+    {
+        if (!isPlaying)
+        {
+            StartCoroutine("PlayFadeOut");
+        }
     }
 
     IEnumerator PlayFadeOut()
     {
         isPlaying = true;
-
+        
         Color color = fadeImage.color;
         time = 0f;
         color.a = Mathf.Lerp(start, end, time);
@@ -46,10 +48,11 @@ public class FadeOut : MonoBehaviour {
         }
 
         isPlaying = false;
+        UIManager.I.ChangeState("Restart");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

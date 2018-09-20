@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 
 public class Player : MonoBehaviour {
 
     bool isColliding;
 	const int side = 6;
-    UnityEngine.Color MissionColor;
+    int count;
+    public int fin = 0;
+    Color MissionColor = new Color(255.0f, 0.0f, 0.0f);
     private void OnCollisionEnter(Collision collision)
     {
         if (isColliding) return;
@@ -19,15 +22,19 @@ public class Player : MonoBehaviour {
 			rb.velocity = new Vector3(0,0,0);
             rb.AddForce(new Vector3(0, 9.836f, 5.679f)*50);
 
-            UnityEngine.UI.Text a = GameObject.Find("GameObject").GetComponent<BounceText>().text;
-
             //스테이지 클리어 여부 판별
-            if (collision.collider.GetComponent<MeshRenderer>().materials[0].color == MissionColor)
-                GameManager.I.ChangeState("StageClear");
+            if (collision.collider.GetComponent<MeshRenderer>().materials[0].color == MissionColor && fin==1)
+            {
+                SaveClear(GameManager.I.stage);
+                GameManager.I.bounce_count = count;
+                UIManager.I.ChangeState("Result");
+            }
 
             //게임오버 여부 판별
-            if (System.Convert.ToInt32(a.text) == 0)
-                GameManager.I.ChangeState("GameOver");
+            if (count == 0)
+            {
+                UIManager.I.ChangeState("GameOver");
+            }
 
             // 플레이어 색깔 갱신
             UnityEngine.Color ChangedColor;
@@ -39,27 +46,30 @@ public class Player : MonoBehaviour {
 			scope.transform.position += Vector3.forward * side * 1.9f;
 
             // 남은 충돌 횟수 ui 갱신
-            a.text = (System.Convert.ToInt32(a.text) - 1).ToString();
+            count--;
+            UIManager.I.UpdateCount(count);
+        }
 
-            // (남은 충돌 횟수 0일시) 결과화면으로
-            if (a.text == "0") {
-                SaveClear(1);
-                GameManager.I.ChangeState("Result");
-            }
+        if (collision.collider.tag == "Wall")
+        {
+            Debug.Log("Crash");
+            fin = 1 - fin;
         }
     }
 
     void Start()
     {
         GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new UnityEngine.Color(1.0f, 1.0f, 1.0f));
+        count = GameManager.I.count;
     }
 
     void Update()
     {
         isColliding = false;
 
-        if (transform.position.y < -10)
-            GameManager.I.ChangeState("GameOver");
+        if (transform.position.y < -10) {
+            UIManager.I.ChangeState("GameOver");
+        }
     }
 
     void SaveClear(int stage)

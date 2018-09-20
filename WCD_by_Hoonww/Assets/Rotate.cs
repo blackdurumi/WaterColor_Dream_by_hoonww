@@ -7,6 +7,8 @@ public class Rotate : MonoBehaviour {
     [SerializeField]
     private int speed = 60;
 
+    public int goal = 0;
+
 	// Use this for initialization
 	void Start () {
 	}

@@ -24,8 +24,8 @@ public class MapParser : MonoBehaviour {
     {
         /*TextAsset dt = Resources.Load("GameData/Map1", typeof(TextAsset)) as TextAsset;
         StringReader sr = new StringReader(dt.text);*/
-        //StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/Map"+GameManager.I.GetComponent<GameManager>().stage.ToString()+".txt");
-        StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/Map1.txt");
+        StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/Map"+GameManager.I.GetComponent<GameManager>().stage.ToString()+".txt");
+        //StreamReader sr = new StreamReader(Application.dataPath + "/Resources/GameData/Map1.txt");
 
         string sources = sr.ReadLine();
         string[] values;
@@ -40,8 +40,10 @@ public class MapParser : MonoBehaviour {
                 sr.Close();
                 return;
             }
-            
-            if (values.Length == 1 && data.Areas==0)
+
+            if (values.Length == 1 && data.Count == 0)
+                data.Count = Convert.ToInt32(values[0]);
+            else if (values.Length == 1 && data.Areas == 0)
                 data.Areas = Convert.ToInt32(values[0]);
             else if (values.Length == 1)
                 data.map[n++].nextArea = Convert.ToInt32(values[0]);
@@ -70,7 +72,7 @@ public class MapParser : MonoBehaviour {
 }
 
 public class DS{
-    public int Areas;
+    public int Areas, Count;
     public Area[] map= new Area[100];
 
     public DS()

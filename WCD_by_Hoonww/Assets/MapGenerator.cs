@@ -48,6 +48,7 @@ public class MapGenerator : MonoBehaviour {
         {
             GameObject curwall = GameObject.Find("FW" + i);
             curwall.transform.position = new Vector3(0.0f + x + xx[i] / 2, 4.0f, 0.0f + z + zz[i] / 2);
+            curwall.GetComponent<Rotate>().goal = 1;
             if (i % 3 == 1) curwall.transform.RotateAround(curwall.transform.position, Vector3.up, 60.0f);
             else if (i % 3 == 2) curwall.transform.RotateAround(curwall.transform.position, Vector3.up, -60.0f);
         }
@@ -55,6 +56,5 @@ public class MapGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 }
