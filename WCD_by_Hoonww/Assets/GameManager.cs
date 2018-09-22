@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int stage = 0;
     public int count = 0;
     public int bounce_count = 0;
+    public Color Goal;
 
     private static GameManager instance;
     public static GameManager I

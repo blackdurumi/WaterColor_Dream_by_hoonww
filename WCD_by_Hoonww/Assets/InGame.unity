@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 342552966}
   - component: {fileID: 342552965}
   - component: {fileID: 342552967}
+  - component: {fileID: 342552968}
   m_Layer: 0
   m_Name: FW5
   m_TagString: Wall
@@ -268,6 +269,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   goal: 0
+--- !u!65 &342552968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342552964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9999995, y: 4.9999995, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &434963698
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +514,7 @@ GameObject:
   - component: {fileID: 472574879}
   - component: {fileID: 472574878}
   - component: {fileID: 472574880}
+  - component: {fileID: 472574881}
   m_Layer: 0
   m_Name: FW1
   m_TagString: Wall
@@ -580,6 +594,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   goal: 0
+--- !u!65 &472574881
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 472574877}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9999995, y: 4.9999995, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &539042245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1404,7 @@ GameObject:
   - component: {fileID: 875409309}
   - component: {fileID: 875409308}
   - component: {fileID: 875409310}
+  - component: {fileID: 875409311}
   m_Layer: 0
   m_Name: FW4
   m_TagString: Wall
@@ -1457,6 +1484,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   goal: 0
+--- !u!65 &875409311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 875409307}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9999995, y: 4.9999995, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &945509388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,6 +1907,7 @@ GameObject:
   - component: {fileID: 1168301814}
   - component: {fileID: 1168301813}
   - component: {fileID: 1168301815}
+  - component: {fileID: 1168301816}
   m_Layer: 0
   m_Name: FW0
   m_TagString: Wall
@@ -1947,6 +1987,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   goal: 0
+--- !u!65 &1168301816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168301812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9999995, y: 4.9999995, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1254003795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2467,7 @@ GameObject:
   - component: {fileID: 1603258171}
   - component: {fileID: 1603258170}
   - component: {fileID: 1603258172}
+  - component: {fileID: 1603258173}
   m_Layer: 0
   m_Name: FW2
   m_TagString: Wall
@@ -2494,6 +2547,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   goal: 0
+--- !u!65 &1603258173
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1603258169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9999995, y: 4.9999995, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1609298122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,6 +2915,7 @@ GameObject:
   - component: {fileID: 2092006818}
   - component: {fileID: 2092006817}
   - component: {fileID: 2092006819}
+  - component: {fileID: 2092006820}
   m_Layer: 0
   m_Name: FW3
   m_TagString: Wall
@@ -2929,6 +2995,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   goal: 0
+--- !u!65 &2092006820
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2092006816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.9999995, y: 4.9999995, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2122682129
 GameObject:
   m_ObjectHideFlags: 0

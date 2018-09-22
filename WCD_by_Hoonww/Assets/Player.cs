@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	const int side = 6;
     int count;
     public int fin = 0;
-    Color MissionColor = new Color(255.0f, 0.0f, 0.0f);
+    Color MissionColor = GameManager.I.Goal;
     private void OnCollisionEnter(Collision collision)
     {
         if (isColliding) return;
@@ -23,6 +23,8 @@ public class Player : MonoBehaviour {
             rb.AddForce(new Vector3(0, 9.836f, 5.679f)*50);
 
             //스테이지 클리어 여부 판별
+            if (collision.collider.GetComponent<MeshRenderer>().materials[0].color == MissionColor)
+                Debug.Log("Correct");
             if (collision.collider.GetComponent<MeshRenderer>().materials[0].color == MissionColor && fin==1)
             {
                 SaveClear(GameManager.I.stage);
@@ -49,8 +51,11 @@ public class Player : MonoBehaviour {
             count--;
             UIManager.I.UpdateCount(count);
         }
+    }
 
-        if (collision.collider.tag == "Wall")
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag=="Wall")
         {
             Debug.Log("Crash");
             fin = 1 - fin;

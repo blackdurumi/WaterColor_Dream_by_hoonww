@@ -137,7 +137,8 @@ public class UIManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (GameObject.Find("Pause")!=null && GameObject.Find("Pause").GetComponent<Button>().interactable == true)
+            Debug.Log("activate");
 	}
 
     public void Pause()

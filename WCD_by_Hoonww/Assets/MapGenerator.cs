@@ -39,8 +39,8 @@ public class MapGenerator : MonoBehaviour {
 
             if (area < MapData.Areas - 1)
             {
-                x += xx[MapData.map[area].nextArea] * 3;
-                z += zz[MapData.map[area].nextArea] * 3;
+                x += xx[MapData.map[area].nextArea-1] * 3;
+                z += zz[MapData.map[area].nextArea-1] * 3;
             }
         }
         
