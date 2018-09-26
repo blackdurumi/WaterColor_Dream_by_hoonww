@@ -66,6 +66,7 @@ public class Player : MonoBehaviour {
     {
         GetComponent<MeshRenderer>().materials[0].SetColor("_Color", new UnityEngine.Color(1.0f, 1.0f, 1.0f));
         count = GameManager.I.count;
+        UIManager.I.UpdateCount(count);
     }
 
     void Update()

@@ -43,9 +43,10 @@ public class MapParser : MonoBehaviour {
 
             if(values.Length==3 && data.Count == 0)
             {
-                GameManager.I.Goal.r = Convert.ToInt32(values[0]);
-                GameManager.I.Goal.g = Convert.ToInt32(values[1]);
-                GameManager.I.Goal.b = Convert.ToInt32(values[2]);
+                GameManager.I.Goal.r = Convert.ToInt32(values[0])/255f;
+                GameManager.I.Goal.g = Convert.ToInt32(values[1])/255f;
+                GameManager.I.Goal.b = Convert.ToInt32(values[2])/255f;
+                GameManager.I.Goal.a = 1.0f;
             }
             else if (values.Length == 1 && data.Count == 0)
                 data.Count = Convert.ToInt32(values[0]);

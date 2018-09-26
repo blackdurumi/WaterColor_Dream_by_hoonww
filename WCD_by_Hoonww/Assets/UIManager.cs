@@ -45,20 +45,20 @@ public class UIManager : MonoBehaviour
             case "ResultToSS": GameManager.I.state = 2; break;
         }
 
+
         if (GameManager.I.state == 5)
         {
-            Debug.Log("PAUSE");
             UIManager.I.Pause();
         }
-        else if (GameManager.I.state == 4)
+        else if (GameManager.I.state == 4 && Time.timeScale == 0)
         {
-            if (Time.timeScale == 0) Time.timeScale = 1;//일시정지 해제
+            Time.timeScale = 1;//일시정지 해제
         }
         else if (GameManager.I.state == 6)
         {
             GameObject.Find("FadeAnim").GetComponent<FadeAnim>().StartFadeOutAnim();
         }
-        GameObject.Find("SceneSwitcher").GetComponent<SceneSwitcher>().Switcher(GameManager.I.state);
+        else GameObject.Find("SceneSwitcher").GetComponent<SceneSwitcher>().Switcher(GameManager.I.state);
     }
 
     public void WhichStage(int n)
@@ -137,8 +137,6 @@ public class UIManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (GameObject.Find("Pause")!=null && GameObject.Find("Pause").GetComponent<Button>().interactable == true)
-            Debug.Log("activate");
 	}
 
     public void Pause()
@@ -187,9 +185,6 @@ public class UIManager : MonoBehaviour
     // 버튼들 목록
     public void GameStartButton()
     {
-        Image MissionColor = GameObject.Find("MissionColor").GetComponent<Image>();
-
-        MissionColor.color = new Color(0.0f, 0.0f, 0.0f); // Mission Color 가져오기 필요
     }
 
     public void RestartButton()
